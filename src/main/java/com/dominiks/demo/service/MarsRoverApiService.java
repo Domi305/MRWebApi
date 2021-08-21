@@ -7,10 +7,10 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class MarsRoverApiService {
-    public MarsRoverApiResponse getRoverData() {
+    public MarsRoverApiResponse getRoverData(String roverType) {
         RestTemplate rt = new RestTemplate();
 
-        ResponseEntity<MarsRoverApiResponse> response = rt.getForEntity("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=2&api_key=DEMO_KEY", MarsRoverApiResponse.class);
+        ResponseEntity<MarsRoverApiResponse> response = rt.getForEntity("https://api.nasa.gov/mars-photos/api/v1/rovers/"+roverType+"/photos?sol=2&api_key=DEMO_KEY", MarsRoverApiResponse.class);
 
         return response.getBody();
     }
