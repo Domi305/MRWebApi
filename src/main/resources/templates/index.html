@@ -6,21 +6,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script type="text/javascript" src="/js/index.js" defer>
-
     </script>
 </head>
 <body>
 <div class="container">
     <h2>Welcome to the Mars Rover API Web App</h2>
-    <form method="post">
+    <form method="post" action="" id="fromRoverType">
+        <input type="hidden" id="marsApiRoverData" name="marsApiRoverData" value=""/>
         <div class="btn-group btn-group-lg" role="group" style="margin: 2em 0em;" aria-label="Basic radio toggle button group">
-        <input type="radio" class="btn-check" name="btnradio" id="marsApiCuriosity" autocomplete="off" checked>
+
+        <input type="radio" class="btn-check" name="btnradio" id="marsApiCuriosity">
         <label class="btn btn-outline-primary" for="marsApiCuriosity">Curiosity</label>
 
-        <input type="radio" class="btn-check" name="btnradio" id="marsApiOpportunity" autocomplete="off">
+        <input type="radio" class="btn-check" name="btnradio" id="marsApiOpportunity">
         <label class="btn btn-outline-primary" for="marsApiOpportunity">Opportunity</label>
 
-        <input type="radio" class="btn-check" name="btnradio" id="marsApiSpirit" autocomplete="off">
+        <input type="radio" class="btn-check" name="btnradio" id="marsApiSpirit">
         <label class="btn btn-outline-primary" for="marsApiSpirit">Spirit</label>
     </div>
     </form>
@@ -28,16 +29,16 @@
 
     <div th:each="i: ${#numbers.sequence(0, roverData.photos.size(), 4)}" class="row" style="margin-bottom: 2em">
         <div class="col" th:if="${i < roverData.photos.size()}">
-            <img th:src=" ${roverData.photos[i].getImgSrc()}" class="img-fluid">
+            <img th:src=" ${roverData.photos[i].imgSrc}" class="img-fluid">
         </div>
         <div class="col" th:if="${i+1 < roverData.photos.size()}">
-            <img th:src="${roverData.photos[i + 1].getImgSrc()}" class="img-fluid">
+            <img th:src="${roverData.photos[i + 1].imgSrc}" class="img-fluid">
         </div>
         <div class="col" th:if="${i+2 < roverData.photos.size()}">
-            <img th:src="${roverData.photos[i + 2].getImgSrc()}" class="img-fluid">
+            <img th:src="${roverData.photos[i + 2].imgSrc}" class="img-fluid">
         </div>
         <div class="col" th:if="${i+3 < roverData.photos.size()}">
-            <img th:src="${roverData.photos[i + 3].getImgSrc()}" class="img-fluid">
+            <img th:src="${roverData.photos[i + 3].imgSrc}" class="img-fluid">
         </div>
     </div>
 </div>
