@@ -12,7 +12,6 @@ public class MarsRoverApiService {
 
     public MarsRoverApiResponse getRoverData(String roverType) {
         RestTemplate rt = new RestTemplate();
-        //FIXME display pictures by rover type
         ResponseEntity<MarsRoverApiResponse> response = rt.getForEntity("https://api.nasa.gov/mars-photos/api/v1/rovers/" + roverType + "/photos?sol=2&api_key=" + API_KEY , MarsRoverApiResponse.class);
 
         return response.getBody();
