@@ -10,9 +10,9 @@ public class MarsRoverApiService {
 
     private static final String API_KEY = "EgHpwnMfoCkjbdLcN6eAh2kZXyDZeizIzoyD2Amq";
 
-    public MarsRoverApiResponse getRoverData(String roverType) {
+    public MarsRoverApiResponse getRoverData(String roverType, Integer marsSol) {
         RestTemplate rt = new RestTemplate();
-        ResponseEntity<MarsRoverApiResponse> response = rt.getForEntity("https://api.nasa.gov/mars-photos/api/v1/rovers/" + roverType + "/photos?sol=2&api_key=" + API_KEY , MarsRoverApiResponse.class);
+        ResponseEntity<MarsRoverApiResponse> response = rt.getForEntity("https://api.nasa.gov/mars-photos/api/v1/rovers/" + roverType + "/photos?sol=" + marsSol + "&api_key=" + API_KEY, MarsRoverApiResponse.class);
 
         return response.getBody();
     }

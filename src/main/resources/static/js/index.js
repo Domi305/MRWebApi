@@ -31,14 +31,17 @@ function getUrlParameter(name) {
 //         document.getElementById('marsApiOpportunity').classList.add('btn-outline-primary')
 //     }
 
-let  marsRoverType = getUrlParameter("marsApiRoverData")
+let marsRoverType = getUrlParameter("marsApiRoverData")
 //console.log(getUrlParameter("marsApiRoverData"))
-if (marsRoverType == '')
-    marsRoverType = 'Curiosity'
 
 highlightInputByRoverType(marsRoverType)
 
-function highlightInputByRoverType (roverType) {
+let marsSol = getUrlParameter('marsSol')
+document.getElementById('marsSol').value = marsSol
+
+function highlightInputByRoverType(roverType) {
+    if (roverType == '')
+        roverType = 'Curiosity'
     document.getElementById('marsApi' + roverType).checked = true
 }
 
