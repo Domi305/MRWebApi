@@ -19,14 +19,4 @@ public class MarsPhoto {
     @JsonProperty("earth_date")
     private String earthDate;
     private MarsRover rover;
-
-//    @Override
-//    public String toString() {
-//        return "MarsPhoto{" +
-//                "id=" + id +
-//                ", sol=" + sol +
-//                ", camera=" + camera +
-//                ", imgSrc='" + imgSrc + '\'' +
-//                '}';
-//    }
 }

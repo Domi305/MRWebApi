@@ -14,12 +14,4 @@ public class MarsRover {
     @JsonProperty("landing_date")
     private String landingDate;
 
-/*    @Override
-    public String toString() {
-        return "MarsRover{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", landingDate='" + landingDate + '\'' +
-                '}';
-    }*/
 }

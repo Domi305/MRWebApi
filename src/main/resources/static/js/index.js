@@ -28,11 +28,3 @@ function highlightInputByRoverType(roverType) {
         roverType = 'Curiosity'
     document.getElementById('marsApi' + roverType).checked = true
 }
-
-// if (marsRoverType == 'Opportunity') {
-//     document.getElementById('marsApiOpportunity').checked = true
-// } else if (marsRoverType == 'Spirit') {
-//     document.getElementById('marsApiSpirit').checked = true
-// } else {
-//     document.getElementById('marsApiCuriosity').checked = true
-// }

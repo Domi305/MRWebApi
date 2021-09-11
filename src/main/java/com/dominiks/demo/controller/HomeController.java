@@ -22,7 +22,7 @@ public class HomeController {
     public String getHomeView(Model model, HomeDto homeDto) {
         //if request param is empty, then set default value
         if (StringUtils.isEmpty(homeDto.getMarsApiRoverData())) {
-            homeDto.setMarsApiRoverData("Curiosity") ;
+            homeDto.setMarsApiRoverData("Curiosity");
         }
         if (homeDto.getMarsSol() == null)
             homeDto.setMarsSol(1);
@@ -30,13 +30,8 @@ public class HomeController {
         MarsRoverApiResponse roverData = roverApiService.getRoverData(homeDto);
         model.addAttribute("roverData", roverData);
         model.addAttribute("homeDto", homeDto);
+        model.addAttribute("validCameras", roverApiService.getValidCameras().get(homeDto.getMarsApiRoverData()));
         return "index";
     }
 
-/*    @PostMapping("/")
-    public String postHomeView(Model model, @RequestParam String marsApiRoverData) {
-        MarsRoverApiResponse roverData = roverApiService.getRoverData(marsApiRoverData);
-        model.addAttribute("roverData", roverData);
-        return "index";
-    }*/
 }

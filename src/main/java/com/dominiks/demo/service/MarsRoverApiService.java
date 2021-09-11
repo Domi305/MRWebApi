@@ -37,7 +37,7 @@ public class MarsRoverApiService {
                     photos.addAll(apiResponse.getPhotos());
                 });
         response.setPhotos(photos);
-        //ResponseEntity<MarsRoverApiResponse> response = rt.getForEntity("https://api.nasa.gov/mars-photos/api/v1/rovers/" + homeDto.getMarsApiRoverData() + "/photos?sol=" + homeDto.getMarsSol() + "&api_key=" + API_KEY, MarsRoverApiResponse.class);
+
         return response;
     }
 
@@ -63,5 +63,9 @@ public class MarsRoverApiService {
             }
         }
         return urls;
+    }
+
+    public Map<String, List<String>> getValidCameras() {
+        return validCameras;
     }
 }

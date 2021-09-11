@@ -7,10 +7,6 @@ import lombok.Setter;
 @Setter
 public class HomeDto {
 
-//    @RequestParam(required = false) String marsApiRoverData,
-//    @RequestParam(required = false) Integer marsSol,
-//    @RequestParam(required = false) Boolean defaultCheck1
-
     private String marsApiRoverData;
     private Integer marsSol;
 
@@ -24,5 +20,4 @@ public class HomeDto {
     private Boolean cameraPancam;
     private Boolean cameraMinites;
 
-//    private Boolean defaultCheck1;
 }
