@@ -27,7 +27,7 @@ public class HomeController {
         if (homeDto.getMarsSol() == null)
             homeDto.setMarsSol(1);
 
-        MarsRoverApiResponse roverData = roverApiService.getRoverData(homeDto.getMarsApiRoverData(), homeDto.getMarsSol());
+        MarsRoverApiResponse roverData = roverApiService.getRoverData(homeDto);
         model.addAttribute("roverData", roverData);
         model.addAttribute("homeDto", homeDto);
         return "index";

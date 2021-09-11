@@ -3,9 +3,11 @@ package com.dominiks.demo.response;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class MarsPhoto {
 
     private Long id;
@@ -18,13 +20,13 @@ public class MarsPhoto {
     private String earthDate;
     private MarsRover rover;
 
-    @Override
-    public String toString() {
-        return "MarsPhoto{" +
-                "id=" + id +
-                ", sol=" + sol +
-                ", camera=" + camera +
-                ", imgSrc='" + imgSrc + '\'' +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "MarsPhoto{" +
+//                "id=" + id +
+//                ", sol=" + sol +
+//                ", camera=" + camera +
+//                ", imgSrc='" + imgSrc + '\'' +
+//                '}';
+//    }
 }
