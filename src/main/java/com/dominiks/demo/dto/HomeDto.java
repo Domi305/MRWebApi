@@ -15,7 +15,6 @@ public class HomeDto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private Long userId;
     @Column(length = 20)
     private String marsApiRoverData;

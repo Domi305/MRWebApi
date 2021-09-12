@@ -19,13 +19,16 @@ public class HomeController {
     private MarsRoverApiService roverApiService;
 
     @GetMapping("/")
-    public String getHomeView(Model model, HomeDto homeDto) throws IllegalArgumentException {
-        //if request param is empty, then set default value
-        if (StringUtils.isEmpty(homeDto.getMarsApiRoverData())) {
-            homeDto.setMarsApiRoverData("Curiosity");
+    public String getHomeView(Model model, Long userId) throws IllegalArgumentException {
+        HomeDto homeDto = new HomeDto();
+        homeDto.setMarsApiRoverData("Curiosity");
+        homeDto.setMarsSol(1);
+
+        if (userId == null) {
+            homeDto = roverApiService.save(homeDto);
+        } else {
+            homeDto = roverApiService.findByUserId(userId);
         }
-        if (homeDto.getMarsSol() == null)
-            homeDto.setMarsSol(1);
 
         MarsRoverApiResponse roverData = roverApiService.getRoverData(homeDto);
         model.addAttribute("roverData", roverData);
@@ -39,6 +42,6 @@ public class HomeController {
     public String postHomeView(@ModelAttribute(value = "homeDto") HomeDto postData) {
         roverApiService.save(postData);
         System.out.println(postData);
-        return "redirect:/";
+        return "redirect:/?userId=" + postData.getUserId();
     }
 }
