@@ -1,6 +1,6 @@
 package com.dominiks.demo.service;
 
-import com.dominiks.demo.Dto.HomeDto;
+import com.dominiks.demo.dto.HomeDto;
 import com.dominiks.demo.response.MarsPhoto;
 import com.dominiks.demo.response.MarsRoverApiResponse;
 import org.springframework.stereotype.Service;

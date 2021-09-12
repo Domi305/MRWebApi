@@ -1,3 +1,14 @@
+let userId = getUrlParameter('userId')
+//let userId = localStorage.getItem('userId');
+if (userId == null || userId == '') {
+    userId = localStorage.getItem('userId')
+}
+
+if (userId != null && userId != '') {
+    localStorage.setItem('userId', userId)
+    document.getElementById('userId').value = userId
+}
+
 let marsApiButtons = document.querySelectorAll("input[id*='marsApi']")
 
 marsApiButtons.forEach(input => input.addEventListener('click', function () {
@@ -21,7 +32,9 @@ let marsRoverType = getUrlParameter("marsApiRoverData")
 highlightInputByRoverType(marsRoverType)
 
 let marsSol = getUrlParameter('marsSol')
-document.getElementById('marsSol').value = marsSol
+if (marsSol != null && marsSol != '' && marsSol >= 0) {
+    document.getElementById('marsSol').value = marsSol
+}
 
 function highlightInputByRoverType(roverType) {
     if (roverType == '')

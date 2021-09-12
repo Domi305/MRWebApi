@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:ht="http://www.w3.org/1999/html" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Mars Rover API App</title>
@@ -10,8 +10,10 @@
 <body>
 <div class="container">
     <h2>Welcome to the Mars Rover API Web App</h2>
-    <form method="get" action="" id="fromRoverType">
+    <form method="post" action="" id="fromRoverType">
         <input type="hidden" th:field="${homeDto.marsApiRoverData}"/>
+        <input type="hidden" th:field="${homeDto.userId}"/>
+
         <div class="btn-group btn-group-lg" role="group" style="margin: 2em 0em;">
 
             <input type="radio" class="btn-check" name="btnradio" id="marsApiCuriosity">
@@ -113,7 +115,16 @@
         <div class="form-group" style="margin: 1em 0em;">
             <label th:for="${homeDto.marsSol}">Mars Sol (Mars Day): </label>
             <input class="form-control form-control-lg" type="number" th:field="${homeDto.marsSol}" min="0"/>
-            <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 1em">Submit</button>
+        </div>
+
+        <div class="row">
+            <div class="col-3 col-sm-2" style="margin-bottom: 1em">
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            </div>
+            <div class="col-9 col-sm-10" style="margin-top: 0.7em">
+                <input type="checkbox" th:field="${homeDto.rememberPreferences}"/>
+                <label th:for="rememberPreferences1">Remember Preferences</label>
+            </div>
         </div>
 
     </form>

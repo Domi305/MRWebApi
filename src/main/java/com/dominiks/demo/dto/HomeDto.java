@@ -1,12 +1,15 @@
-package com.dominiks.demo.Dto;
+package com.dominiks.demo.dto;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class HomeDto {
 
+    private Long userId;
     private String marsApiRoverData;
     private Integer marsSol;
 
@@ -19,5 +22,6 @@ public class HomeDto {
     private Boolean cameraNavcam;
     private Boolean cameraPancam;
     private Boolean cameraMinites;
+    private Boolean rememberPreferences;
 
 }
