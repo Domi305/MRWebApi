@@ -1,7 +1,9 @@
 let userId = getUrlParameter('userId')
-//let userId = localStorage.getItem('userId');
 if (userId == null || userId == '') {
     userId = localStorage.getItem('userId')
+    if (userId == null || userId == '') {
+        document.getElementById('createUser').value = true
+    }
 }
 
 if (userId != null && userId != '') {
@@ -26,7 +28,7 @@ function getUrlParameter(name) {
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 };
 
-let marsRoverType = getUrlParameter("marsApiRoverData")
+let marsRoverType = document.getElementById('marsApiRoverData').value
 //console.log(getUrlParameter("marsApiRoverData"))
 
 highlightInputByRoverType(marsRoverType)
