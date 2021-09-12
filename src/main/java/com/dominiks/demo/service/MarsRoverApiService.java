@@ -1,8 +1,10 @@
 package com.dominiks.demo.service;
 
 import com.dominiks.demo.dto.HomeDto;
+import com.dominiks.demo.repository.PreferencesRepository;
 import com.dominiks.demo.response.MarsPhoto;
 import com.dominiks.demo.response.MarsRoverApiResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -16,6 +18,9 @@ public class MarsRoverApiService {
     private static final String API_KEY = "EgHpwnMfoCkjbdLcN6eAh2kZXyDZeizIzoyD2Amq";
 
     private Map<String, List<String>> validCameras = new HashMap<>();
+
+    @Autowired
+    private PreferencesRepository preferencesRepo;
 
     public MarsRoverApiService() {
 
@@ -67,5 +72,9 @@ public class MarsRoverApiService {
 
     public Map<String, List<String>> getValidCameras() {
         return validCameras;
+    }
+
+    public void save(HomeDto postData) {
+        preferencesRepo.save(postData);
     }
 }

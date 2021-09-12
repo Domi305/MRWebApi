@@ -1,6 +1,7 @@
 package com.dominiks.demo.controller;
 
 import com.dominiks.demo.dto.HomeDto;
+import com.dominiks.demo.repository.PreferencesRepository;
 import com.dominiks.demo.response.MarsRoverApiResponse;
 import com.dominiks.demo.service.MarsRoverApiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class HomeController {
     private MarsRoverApiService roverApiService;
 
     @GetMapping("/")
-    public String getHomeView (Model model, HomeDto homeDto) throws IllegalArgumentException {
+    public String getHomeView(Model model, HomeDto homeDto) throws IllegalArgumentException {
         //if request param is empty, then set default value
         if (StringUtils.isEmpty(homeDto.getMarsApiRoverData())) {
             homeDto.setMarsApiRoverData("Curiosity");
@@ -35,7 +36,8 @@ public class HomeController {
     }
 
     @PostMapping("/")
-    public String postHomeView (@ModelAttribute(value = "homeDto") HomeDto postData) {
+    public String postHomeView(@ModelAttribute(value = "homeDto") HomeDto postData) {
+        roverApiService.save(postData);
         System.out.println(postData);
         return "redirect:/";
     }
