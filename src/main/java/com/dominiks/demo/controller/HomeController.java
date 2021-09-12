@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HomeController {
@@ -40,6 +41,15 @@ public class HomeController {
         }
 
         return "index";
+    }
+
+    @GetMapping("/savedPreferences")
+    @ResponseBody
+    public HomeDto getSavedPreferences(Long userId) {
+        if (userId != null)
+            return roverApiService.findByUserId(userId);
+        else
+            return createDefaultHomeDto(userId);
     }
 
     private HomeDto createDefaultHomeDto(Long userId) {
